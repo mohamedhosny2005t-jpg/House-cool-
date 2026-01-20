@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House COOL | خدماتنا</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+:root {
+    --primary: #007bff;
+    --accent: #00f2ff;
+    --dark: #050a18;
+    --white: #ffffff;
+    --gray-bg: #f8f9fa;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    font-family: 'Cairo', sans-serif;
+    color: rgb(6, 47, 129);
+    overflow-x: hidden;
+    line-height: 1.6;
+    background: linear-gradient(to right, #000263, #181ecf);
+}
+
+a { text-decoration: none; }
+ul { list-style: none; }
+img { 
+    height: 300px;
+    opacity:0.8;
+    transition:0.3s;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgb(247, 243, 243);
+}
+
+/* ===== Container & Cards ===== */
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: #ececee86;
+    padding: 35px 25px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: var(--transition);
+    border-bottom: 4px solid transparent;
+    box-shadow: 0 10px 40px rgba(17, 4, 4, 0.36);
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    border-bottom: 4px solid var(--primary);
+    background: #fff; 
+    color: var(--dark);
+}
+
+/* ===== Services Section ===== */
+.service-section {
+    display: none;
+    padding: 40px 20px;
+    background: linear-gradient(to right, #0c0fde, #b3b3c1);
+    margin-top: 20px;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.service-section.active {
+    display: block;
+    max-height: 1000px;
+}
+
+/* ===== Buttons ===== */
+button {
+    padding: 12px 25px;
+    margin-top: 40px;
+    cursor: pointer;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+button:hover {
+    background: #0047b3;
+}
+
+/* ===== Headings ===== */
+h2, h3 {
+    margin-bottom: 50px;
+    font-weight: 900;
+}
+
+/* ===== Responsive ===== */
+@media(max-width: 768px){
+    .container { padding: 10px; }
+    .card { padding: 25px 15px; }
+}
+
+@media(max-width: 480px){
+    h2, h3 { font-size: 1.5rem; margin-bottom: 30px; }
+    button { padding: 10px 20px; font-size: 14px; }
+    .card { padding: 20px 15px; }
+}
+
+#snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.snowflake {
+  position: absolute;
+  top: -50px;
+  color: #fff;
+  user-select: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>خدماتنا</h2>
+<div class="card" onclick="showSection('install')">تركيب التكييفات</div>
+<div class="card" onclick="showSection('maintenance')">صيانة التكييفات</div>
+<div class="card" onclick="showSection('sales')">بيع وتوريد</div>
+<div class="card" onclick="showSection('contracts')">عقود صيانة</div>
+
+<!-- الأقسام -->
+<section id="install" class="service-section">
+<h3>تركيب التكييفات</h3>
+<ul>
+<li>تركيب شارب – كاريير – LG – سامسونج</li>
+<li>تأسيس قبل التشطيب</li>
+<li>بدون تكسير</li>
+<li>اختبار التشغيل وضبط الكفاءة</li>
+</ul>
+<button onclick="hideSections()">عودة</button>
+</section>
+
+<section id="maintenance" class="service-section">
+<h3>صيانة التكييفات</h3>
+<ul>
+<li>تنظيف وصيانة دورية</li>
+<li>شحن فريون عند الحاجة</li>
+<li>كشف الأعطال</li>
+</ul>
+<button onclick="hideSections()">عودة</button>
+</section>
+
+<section id="sales" class="service-section">
+<h3>بيع وتوريد</h3>
+<ul>
+<li>أفضل الموديلات</li>
+<li>أسعار مناسبة</li>
+<li>استشارة مجانية</li>
+</ul>
+<button onclick="hideSections()">عودة</button>
+</section>
+
+<section id="contracts" class="service-section">
+<h3>عقود صيانة</h3>
+<ul>
+<li>خطط شهرية وسنوية</li>
+<li>أولوية في الدعم الفني</li>
+<li>خدمة طوارئ</li>
+</ul>
+<button onclick="hideSections()">عودة</button>
+</section>
+</div>
+<div id="snow-container"></div>
+<a href="https://wa.me/201156641492" class="whatsapp-fixed"><i class="fab fa-whatsapp"></i></a>
+<div id="snow-container"></div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+<script src="java.js"></script>
+
+</body>
+</html>
